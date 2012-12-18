@@ -15,8 +15,6 @@ else
 end
 
 
-
-
 $stdout.puts "Suchergebnisse fuer : #{i} \n\n"
 
 url = URI.parse('http://reiseauskunft.bahn.de/bin/mgate.exe/dn')
@@ -37,5 +35,9 @@ content = source.parse
 stations = content.find('//Station')
 
 stations.each do |station|
-	$stdout.puts "\t#{station}"
+  name = station["name"]
+  id = station["externalStationNr"]
+  x = station["x"]
+  y = station["y"]
+  $stdout.puts "#{name} - #{id} - #{x} - #{y}"
 end
