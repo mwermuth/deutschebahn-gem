@@ -54,7 +54,8 @@ class Station
   
   attr_accessor :name, :id, :x, :y
   
-  def initialize(name)
+  def initialize(name, id)
     @name = name
+    @id = id
   end
 end

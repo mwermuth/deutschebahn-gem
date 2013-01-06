@@ -36,14 +36,11 @@ def get_station(station)
     stationen.push(station)
   else
     stations.each do |station|
-    
-      station = Station.new(station["name"])
-      station.id = station["externalStationNr"]
-      station.x = station["x"]
-      station.y = station["y"]
-    
+      station = Station.new(station["name"],station["externalStationNr"])
+      #station.x = station["x"]
+      #station.y = station["y"]
+      
       stationen.push(station)
-  
     end
   end
 
@@ -78,8 +75,8 @@ if menu.chomp.eql? "1"
         $stdout.puts i.to_s() + " #{uStation.name}"
       end
       number = gets
-      number = Integer(number)
-      userId = userStation[number].id
+      number = Integer(number) - 1
+      userId = userStationen[number].id
       userSName = userStationen[number].name
     else
       userId = userStationen[0].id
